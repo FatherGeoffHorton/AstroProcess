@@ -8,7 +8,7 @@ For example, let's say I have a 16-bit image, but most of the pixel of interest 
 
 ## Installation
 
-You will need to install Julia <https://julialang.org/downloads/> and Jupyter Lab <https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html>. Once you've done that, import the notebook.
+You will need to install Julia <https://julialang.org/downloads/> and Jupyter Lab <https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html>. Once you've done that, import the notebook. You'll also need to install the following Julia packages: ImageCore, FixedPointNumbers, Colors, OffsetArrays, Plots, ImageIO, FileIO, ImageShow. That's a lot of libraries, perhaps, but much faster to load than the entire Julia images library.
 
 ## Using the notebook
 
@@ -16,7 +16,7 @@ Open it. Then execute Cell 1. This will take a bit of time because it's loading 
 
 Next, edit Cell 2 with the path name to your input image and execute the cell.
 
-Then execute Cell 3. What Cell3 does is to create an array (named `meanne` because at one point it used means until I decided that wasn't a good idea) that's the size of the input picture; each entry in `meanne` is the maximum value of the red, green, and blue values of the corresponding pixel in the input image.
+Then execute Cell 3. What Cell3 does is to create an array (named `makses` because each number in it is the maximum value of the red, green, and blue values of the corresponding pixel in the input image. This value gets called `maks` several times in the code because `max` runs into namespace conflicts.
 
 Now you'll want to find the useful regions of the image. The `blueify` function is your 
 friend here. It takes three arguments: an input image, a lower bound, and an upper bound. There's an invocation of `blueify` in cell 4 that we'll be using for this.
@@ -46,3 +46,6 @@ Now execute Cell 6. You probably won't like the first results. Change the values
 
 Now edit Cell 7 to contain the name of your output file and execute it. You're done!
 
+## Why Julia?
+
+Because Python really doesn't have an easy way to import a 16-bit color image that I can find, at least not without using the enormous cv library. And Julia is faster-running anyhow.
